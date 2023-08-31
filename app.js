@@ -4,12 +4,14 @@ const app = express()
 
 app.listen(3003)
 
+app.set("view engine", "ejs")
+
 app.get("/", (req, res) => {
-    res.sendFile("./views/index.html", {root: __dirname})
+    res.render("index")
 })
 
 app.get("/about", (req, res) => {
-    res.sendFile("./views/about.html", {root: __dirname})
+    res.render("about")
 })
 
 //redirect
@@ -19,5 +21,5 @@ app.get("/about-me", (req, res) => {
 
 //404
 app.use((req, res) => {
-    res.sendFile("./views/404.html", {root: __dirname})
+    res.render("404")
 })
