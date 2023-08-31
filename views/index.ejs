@@ -1,14 +1,25 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ndoe js crash course</title>
-</head>
+<%- include("./partials/head.ejs") %>
+
 <body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog/create">New Blog</a>
-    <h1>Home</h1>
-    <p>Lorem ipsum dolor sit</p>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="blogs content">
+    <h2>All Blogs</h2>
+
+    <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+
+        <h3 class="title"><%= blog.title %></h3>
+        <p class="snippet"><%= blog.snippet %></p>
+
+      <% }) %>
+    <% } else { %>
+      <p>There are no blogs to display...</p>
+    <% } %>
+
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
 </body>
 </html>
