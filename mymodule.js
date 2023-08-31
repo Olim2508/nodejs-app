@@ -1,3 +1,5 @@
-exports.myDateTime = function () {
-  return Date();
-};
+const people = ["john", "tom"]
+
+module.exports = {
+  people: people
+}
